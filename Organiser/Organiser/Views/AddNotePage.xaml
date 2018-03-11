@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Organiser.Views.AddNotePage"
+             Title="{Binding PageTitle}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save Note" Command="{Binding SaveNoteCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Margin="0,10,0,0"
+                    Text="Title"
+                    TextColor="Black"
+                    FontSize="Large"/>
+                <Entry
+                    x:Name="noteTitle"
+                    Grid.Row="1"
+                    Margin="10,0,0,0"
+                    Text="{Binding NoteTitle}"
+                    FontSize="Medium"/>
+                <Label
+                    Grid.Row="2"
+                    Margin="0,10,0,0"
+                    Text="Description"
+                    TextColor="Black"
+                    FontSize="Large"/>
+                <Editor 
+                    Grid.Row="3"
+                    Margin="10,0,0,0"
+                    Text="{Binding NoteDescription}"
+                    HeightRequest="190"
+                    FontSize="Medium"/>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

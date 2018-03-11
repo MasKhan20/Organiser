@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Organiser.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,13 @@ namespace Organiser
 {
 	public partial class App : Application
 	{
-		public App ()
+        static NoteDataBase noteDataBase;
+
+		public App()
 		{
 			InitializeComponent();
 
-			MainPage = new Organiser.MainPage();
+            MainPage = new NavigationPage(new Organiser.Views.RootMasterPage() { Title = "Organiser" });
 		}
 
 		protected override void OnStart ()
@@ -30,5 +33,18 @@ namespace Organiser
 		{
 			// Handle when your app resumes
 		}
+
+        public static NoteDataBase NoteDataBase
+        {
+            get
+            {
+                if (noteDataBase == null)
+                {
+                    noteDataBase = new NoteDataBase(
+                        DependencyService.Get<IFileHelper>().GetLocalFilePath("NoteSQLite.db3"));
+                }
+                return noteDataBase;
+            }
+        }
 	}
 }
