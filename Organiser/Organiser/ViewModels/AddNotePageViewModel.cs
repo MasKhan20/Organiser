@@ -2,6 +2,7 @@
 using Organiser.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -18,6 +19,9 @@ namespace Organiser.ViewModels
 
         #region Binding Properties
         private string _pageTitle;
+        /// <summary>
+        /// Page title changes as notes title is changed
+        /// </summary>
         public string PageTitle
         {
             get { return _pageTitle; }
@@ -57,12 +61,23 @@ namespace Organiser.ViewModels
         }
         #endregion
 
+        private string pageTitle;
 
+        public ObservableCollection<Note> Collection;
         private INavigation Navigation;
-        public AddNotePageViewModel(INavigation navigation)
+        public AddNotePageViewModel(INavigation navigation, ObservableCollection<Note> collection, Note note)
         {
+            Collection = collection;
             Navigation = navigation;
-            PageTitle = "New Note";
+
+            pageTitle = note == null ? "New Note" : "Edit Note";
+            PageTitle = pageTitle;
+
+            if (note != null)
+            {
+                note.Title = NoteTitle;
+                note.Description = NoteDescription;
+            }
         }
 
         public void NoteTitle_TextChanged(object sender, TextChangedEventArgs e)
@@ -100,7 +115,11 @@ namespace Organiser.ViewModels
 
             await App.NoteDataBase.SaveNoteAsync(note);
 
-            await Navigation.PopAsync();
+            Collection.Add(note);
+
+            MessagingCenter.Send(this, "AlertBox", ("Success", "Note has been saved. "));
+
+            await Navigation.PopToRootAsync();
         }
 
         #region INotifyPropertyChanged

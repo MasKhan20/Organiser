@@ -6,7 +6,7 @@
         <StackLayout Padding="20">
             <Button 
                 Text="View Insights"
-                Clicked="Button_Clicked"/>
+                Command="{Binding ShowInsightsCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

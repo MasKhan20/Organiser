@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\NoteDataBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Note.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddNotePageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MasterPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NoteDetailPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NotesPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AddNotePage.xaml.cs">

@@ -36,6 +36,13 @@ namespace Organiser.Views
             Navigation.PushAsync(new NoteDetailPage(viewmodel.NotesList, s.CommandParameter as Note));
         }
 
+        private void MenuEdit_Clicked(object sender, EventArgs e)
+        {
+            var s = (MenuItem)sender;
+
+            Navigation.PushAsync(new AddNotePage(viewmodel.NotesList, s.CommandParameter as Note));
+        }
+
         private async void MenuDelete_Clicked(object sender, EventArgs e)
         {
             var s = (MenuItem)sender;
@@ -63,5 +70,6 @@ namespace Organiser.Views
 
             notesList.SelectedItem = null;
         }
+
     }
 }

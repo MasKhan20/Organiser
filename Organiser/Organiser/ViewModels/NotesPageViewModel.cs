@@ -37,23 +37,6 @@ namespace Organiser.ViewModels
             }
         }
 
-        //private Note _selectedNote;
-        ///// <summary>
-        ///// The selected item in the ListView
-        ///// </summary>
-        //public Note SelectedNote
-        //{
-        //    get { return _selectedNote; }
-        //    set
-        //    {
-        //        _selectedNote = value;
-        //        RaisePropertyChanged(nameof(SelectedNote));
-
-        //        //only works in code-behind
-        //        //HandleSelection();
-        //    }
-        //}
-
         private string _listNote;
         /// <summary>
         /// Displays text to tell user ListView is empty
@@ -126,29 +109,6 @@ namespace Organiser.ViewModels
 
             IsRefreshing = false;
         }
-
-        //private void ViewNote_Command()
-        //{
-        //    if (SelectedNote == null)
-        //    {
-        //        MessagingCenter.Send(this, "AlertBox", ("Error", "No note selected. "));
-        //        return;
-        //    }
-
-        //    Navigation.PushAsync(new NoteDetailPage(SelectedNote));
-        //}
-
-        //private void DeleteNote_Command()
-        //{
-          
-        //    if (SelectedNote == null)
-        //    {
-        //        MessagingCenter.Send(this, "AlertBox", ("Error", "No note selected. "));
-        //        return;
-        //    }
-
-        //    App.NoteDataBase.DeleteNoteAsync(SelectedNote);
-        //}
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

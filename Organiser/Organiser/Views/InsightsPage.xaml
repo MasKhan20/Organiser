@@ -3,9 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:charts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="Organiser.Views.InsightsPage">
+    <ContentPage.Title>
+        Insights
+    </ContentPage.Title>
     <ContentPage.Content>
         <ScrollView>
-            <Grid Padding="20">
+            <Grid 
+                Padding="20"
+                BackgroundColor="#EEEEEE">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -14,11 +19,11 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <!--<charts:ChartView
+                <charts:ChartView
                     x:Name="chartView"
                     Grid.Row="0"
                     HeightRequest="200"
-                    WidthRequest="200"/>-->
+                    BackgroundColor="White"/>
             </Grid>
         </ScrollView>
     </ContentPage.Content>

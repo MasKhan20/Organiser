@@ -15,10 +15,10 @@ namespace Organiser.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AddNotePage : ContentPage
 	{
-		public AddNotePage(ObservableCollection<Note> collection)
+		public AddNotePage(ObservableCollection<Note> collection, Note note = null)
 		{
 			InitializeComponent();
-            var viewmodel = new AddNotePageViewModel(Navigation);
+            var viewmodel = new AddNotePageViewModel(Navigation, collection, note);
             noteTitle.TextChanged += viewmodel.NoteTitle_TextChanged;
             BindingContext = viewmodel;
 

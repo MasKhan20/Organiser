@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Organiser.Views.NoteDetailPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Delete Note" Clicked="DeleteNote_Clicked"/>
+        <ToolbarItem Text="Edit" Clicked="EditNote_Clicked"/>
+        <ToolbarItem Text="Delete" Clicked="DeleteNote_Clicked" IsDestructive="True"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid Padding="10">
@@ -61,13 +62,6 @@
                     Text="{Binding CompleteNote}"
                     FontSize="Medium"/>
             </Grid>
-            <Button
-                Grid.Row="7"
-                Margin="10"
-                Text="Delete Note"
-                Clicked="DeleteNote_Clicked"
-                TextColor="Red"
-                BorderColor="Red"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

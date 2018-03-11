@@ -25,28 +25,23 @@
                         <ViewCell>
                             <ViewCell.ContextActions>
                                 <MenuItem 
-                                    Text="View Note" 
+                                    Text="View" 
                                     Clicked="MenuView_Clicked"
-                                    Command="{Binding ViewNoteCommand}" 
+                                    CommandParameter="{Binding .}"/>
+                                <MenuItem
+                                    Text="Edit"
+                                    Clicked="MenuEdit_Clicked"
                                     CommandParameter="{Binding .}"/>
                                 <MenuItem 
-                                    Text="Delete Note" 
+                                    Text="Delete" 
                                     Clicked="MenuDelete_Clicked"
-                                    Command="{Binding DeleteNoteCommand}" 
                                     CommandParameter="{Binding .}" 
                                     IsDestructive="True"/>
                             </ViewCell.ContextActions>
-                            <Grid Margin="10">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Switch IsToggled="{Binding Complete}"/>
-                                <StackLayout Grid.Column="1">
-                                    <Label Text="{Binding Title}" LineBreakMode="NoWrap" TextColor="Black" FontSize="Medium"/>
-                                    <Label Text="{Binding Description}" LineBreakMode="NoWrap"/>
-                                </StackLayout>
-                            </Grid>
+                            <StackLayout Grid.Column="1">
+                                <Label Text="{Binding Title}" LineBreakMode="NoWrap" TextColor="Black" FontSize="Medium"/>
+                                <Label Text="{Binding Description}" LineBreakMode="NoWrap"/>
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

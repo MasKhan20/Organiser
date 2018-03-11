@@ -5,12 +5,12 @@
 	<Application.Resources>
         <ResourceDictionary>
             <Color x:Key="AppLimeGreen">#32CD32</Color>
-            <Style
+            <!--<Style
                 TargetType="NavigationPage">
                 <Setter
                     Property="BarBackgroundColor"
                     Value="#32CD32"/>
-            </Style>
+            </Style>-->
             <Style
                 x:Key="HeaderLabel"
                 TargetType="Label">

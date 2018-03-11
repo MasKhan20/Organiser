@@ -29,6 +29,11 @@ namespace Organiser.Views
             BindingContext = viewmodel;
         }
 
+        private void EditNote_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AddNotePage(Collection, Note));
+        }
+
         private async void DeleteNote_Clicked(object sender, EventArgs e)
         {
             var confirm = await DisplayAlert("Warning", "Are you sure you want to delete this note", "YES", "NO");

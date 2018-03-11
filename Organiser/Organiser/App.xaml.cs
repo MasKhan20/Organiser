@@ -17,7 +17,7 @@ namespace Organiser
 			InitializeComponent();
 
             MainPage = new NavigationPage(new Organiser.Views.RootMasterPage() { Title = "Organiser" });
-		}
+        }
 
 		protected override void OnStart ()
 		{
