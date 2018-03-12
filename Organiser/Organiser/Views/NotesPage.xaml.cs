@@ -33,14 +33,14 @@ namespace Organiser.Views
         {
             var s = (MenuItem)sender;
 
-            Navigation.PushAsync(new NoteDetailPage(viewmodel.NotesList, s.CommandParameter as Note));
+            Navigation.PushAsync(new NoteDetailPage(viewmodel.NotesList, viewmodel.NotesList.IndexOf((Note)s.CommandParameter)));
         }
 
         private void MenuEdit_Clicked(object sender, EventArgs e)
         {
             var s = (MenuItem)sender;
 
-            Navigation.PushAsync(new AddNotePage(viewmodel.NotesList, s.CommandParameter as Note));
+            Navigation.PushAsync(new AddNotePage(viewmodel.NotesList, viewmodel.NotesList.IndexOf((Note)s.CommandParameter)));
         }
 
         private async void MenuDelete_Clicked(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace Organiser.Views
                 return;
             }
 
-            await App.NoteDataBase.DeleteNoteAsync(s.CommandParameter as Note);
+            await App.NoteDataBase.DeleteNoteAsync((Note)s.CommandParameter);
 
             viewmodel.UpdateListView();
 
@@ -66,7 +66,8 @@ namespace Organiser.Views
                 return;
             }
 
-            Navigation.PushAsync(new NoteDetailPage(viewmodel.NotesList, e.SelectedItem as Note));
+            Navigation.PushAsync(new NoteDetailPage(viewmodel.NotesList, 
+                viewmodel.NotesList.IndexOf((Note)e.SelectedItem)));
 
             notesList.SelectedItem = null;
         }

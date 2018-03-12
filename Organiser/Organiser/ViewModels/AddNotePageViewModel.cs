@@ -59,24 +59,40 @@ namespace Organiser.ViewModels
                 RaisePropertyChanged(nameof(NoteDescription));
             }
         }
+
+        private bool _noteComplete = false;
+        /// <summary>
+        /// Old note complete status
+        /// </summary>
+        public bool NoteComplete
+        {
+            get { return _noteComplete; }
+            set
+            {
+                _noteComplete = value;
+                RaisePropertyChanged(nameof(NoteComplete));
+            }
+        }
         #endregion
 
         private string pageTitle;
-
+        private Note UpdatedNote;
+        private int NoteIndex;
         public ObservableCollection<Note> Collection;
         private INavigation Navigation;
-        public AddNotePageViewModel(INavigation navigation, ObservableCollection<Note> collection, Note note)
+        public AddNotePageViewModel(INavigation navigation, ObservableCollection<Note> collection, int noteIndex = -1)
         {
             Collection = collection;
             Navigation = navigation;
-
-            pageTitle = note == null ? "New Note" : "Edit Note";
+            NoteIndex = noteIndex;
+            pageTitle = noteIndex == -1 ? "New Note" : "Edit Note";
             PageTitle = pageTitle;
 
-            if (note != null)
+            if (noteIndex != -1) // editing note, else new
             {
-                note.Title = NoteTitle;
-                note.Description = NoteDescription;
+                UpdatedNote = collection[noteIndex];
+                NoteTitle = collection[noteIndex].Title;
+                NoteDescription = collection[noteIndex].Description;
             }
         }
 
@@ -84,7 +100,7 @@ namespace Organiser.ViewModels
         {
             if (String.IsNullOrEmpty(NoteTitle) || String.IsNullOrWhiteSpace(NoteTitle))
             {
-                PageTitle = "New Note";
+                PageTitle = pageTitle;
                 return;
             }
 
@@ -107,15 +123,26 @@ namespace Organiser.ViewModels
                 return;
             }
 
-            Note note = new Note()
+            if (UpdatedNote == null)
             {
-                Title = NoteTitle,
-                Description = NoteDescription,
-            };
+                Note note = new Note()
+                {
+                    Title = NoteTitle,
+                    Description = NoteDescription,
+                    Complete = false
+                };
 
-            await App.NoteDataBase.SaveNoteAsync(note);
-
-            Collection.Add(note);
+                await App.NoteDataBase.SaveNoteAsync(note);
+                Collection.Add(note);
+            }
+            else
+            {
+                UpdatedNote.Title = NoteTitle;
+                UpdatedNote.Description = NoteDescription;
+                await App.NoteDataBase.SaveNoteAsync(UpdatedNote);
+                Collection[NoteIndex].Title = NoteTitle;
+                Collection[NoteIndex].Description = NoteDescription;
+            }
 
             MessagingCenter.Send(this, "AlertBox", ("Success", "Note has been saved. "));
 

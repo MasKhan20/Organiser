@@ -93,7 +93,7 @@ namespace Organiser.ViewModels
         /// </summary>
         private async void AddNewNote_Command()
         {
-            await Navigation.PushAsync(new AddNotePage(NotesList));
+            await Navigation.PushAsync(new AddNotePage(NotesList, -1));
 
             UpdateListView();
         }

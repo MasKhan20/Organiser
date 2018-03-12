@@ -4,7 +4,7 @@
              x:Class="Organiser.Views.NotesPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add Note" Command="{Binding AddNewNoteCommand}"/>
-        <ToolbarItem Text="Refresh" Command="{Binding RefreshCommand}"/>
+        <ToolbarItem Text="Refresh" Command="{Binding RefreshCommand}" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>

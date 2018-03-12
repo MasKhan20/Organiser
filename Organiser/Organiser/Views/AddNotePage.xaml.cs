@@ -15,10 +15,10 @@ namespace Organiser.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AddNotePage : ContentPage
 	{
-		public AddNotePage(ObservableCollection<Note> collection, Note note = null)
+		public AddNotePage(ObservableCollection<Note> collection, int noteIndex)
 		{
 			InitializeComponent();
-            var viewmodel = new AddNotePageViewModel(Navigation, collection, note);
+            var viewmodel = new AddNotePageViewModel(Navigation, collection, noteIndex);
             noteTitle.TextChanged += viewmodel.NoteTitle_TextChanged;
             BindingContext = viewmodel;
 
@@ -28,5 +28,22 @@ namespace Organiser.Views
                     DisplayAlert(args.title, args.message, "OK");
                 });
 		}
-	}
+
+        private bool CheckReturn()
+        {
+            return DisplayAlert("Warning", "Are you sure you want to leave?\nAll changes will be lost. ", "YES", "NO").Result;
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            var confirm = CheckReturn();
+
+            if (confirm == true)
+            {
+                return base.OnBackButtonPressed();
+            }
+
+            return false;
+        }
+    }
 }

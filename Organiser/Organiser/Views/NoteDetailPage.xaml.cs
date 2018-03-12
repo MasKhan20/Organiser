@@ -17,21 +17,23 @@ namespace Organiser.Views
 	{
         private ObservableCollection<Note> Collection;
         private Note Note;
-		public NoteDetailPage(ObservableCollection<Note> collection, Note note)
+        private int NoteIndex;
+		public NoteDetailPage(ObservableCollection<Note> collection, int noteIndex)
 		{
 			InitializeComponent();
 
-            Title = note == null ? "Error, note not found" : note.Title;
+            Title = noteIndex == -1 ? "Error, note not found" : collection[noteIndex].Title;
             Collection = collection;
-            Note = note;
-            var viewmodel = new NoteDetailPageViewModel(note);
+            Note = collection[noteIndex];
+            NoteIndex = noteIndex;
+            var viewmodel = new NoteDetailPageViewModel(collection[noteIndex]);
             completeSwitch.Toggled += viewmodel.CompleteSwitch_Toggled;
             BindingContext = viewmodel;
         }
 
         private void EditNote_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddNotePage(Collection, Note));
+            Navigation.PushAsync(new AddNotePage(Collection, NoteIndex));
         }
 
         private async void DeleteNote_Clicked(object sender, EventArgs e)
