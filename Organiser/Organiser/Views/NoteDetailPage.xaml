@@ -7,61 +7,63 @@
         <ToolbarItem Text="Delete" Clicked="DeleteNote_Clicked" Order="Secondary" IsDestructive="True"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <Grid Padding="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Label
-                Grid.Row="0"
-                Margin="0,10,0,0"
-                Text="Title"
-                TextColor="Black"
-                FontSize="Large"/>
-            <Label
-                Grid.Row="1"
-                Margin="10,0,0,0"
-                Text="{Binding Note.Title}"
-                FontSize="Medium"/>
-            <Label
-                Grid.Row="2"
-                Margin="0,10,0,0"
-                Text="Description"
-                TextColor="Black"
-                FontSize="Large"/>
-            <Label 
-                Grid.Row="3"
-                Margin="10,0,0,0"
-                Text="{Binding Note.Description}"
-                FontSize="Medium"/>
-            <Label
-                Grid.Row="4"
-                Margin="0,10,0,0"
-                Text="Task status:"
-                TextColor="Black"
-                FontSize="Large"/>
-            <Grid 
-                Grid.Row="5"
-                Margin="10,0,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Switch
-                    x:Name="completeSwitch"
-                    Grid.Column="0"
-                    IsToggled="{Binding NoteComplete, Mode=TwoWay}"/>
+        <ScrollView>
+            <Grid Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
                 <Label
-                    Grid.Column="1"
-                    Text="{Binding CompleteNote}"
+                    Grid.Row="0"
+                    Margin="0,10,0,0"
+                    Text="Title"
+                    TextColor="Black"
+                    FontSize="Large"/>
+                <Label
+                    Grid.Row="1"
+                    Margin="10,0,0,0"
+                    Text="{Binding Note.Title}"
                     FontSize="Medium"/>
+                <Label
+                    Grid.Row="2"
+                    Margin="0,10,0,0"
+                    Text="Description"
+                    TextColor="Black"
+                    FontSize="Large"/>
+                <Label 
+                    Grid.Row="3"
+                    Margin="10,0,0,0"
+                    Text="{Binding Note.Description}"
+                    FontSize="Medium"/>
+                <Label
+                    Grid.Row="4"
+                    Margin="0,10,0,0"
+                    Text="Task status:"
+                    TextColor="Black"
+                    FontSize="Large"/>
+                <Grid 
+                    Grid.Row="5"
+                    Margin="10,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Switch
+                        x:Name="completeSwitch"
+                        Grid.Column="0"
+                        IsToggled="{Binding NoteComplete, Mode=TwoWay}"/>
+                    <Label
+                        Grid.Column="1"
+                        Text="{Binding CompleteNote}"
+                        FontSize="Medium"/>
+                </Grid>
             </Grid>
-        </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

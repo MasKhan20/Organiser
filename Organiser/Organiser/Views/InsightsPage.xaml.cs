@@ -53,7 +53,7 @@ namespace Organiser.Views
 
                 //IsAnimated = true,
                 //AnimationDuration = TimeSpan.FromSeconds(1),
-                LabelTextSize = 50,
+                LabelTextSize = 40,
                 MaxValue = total,
             };
         }

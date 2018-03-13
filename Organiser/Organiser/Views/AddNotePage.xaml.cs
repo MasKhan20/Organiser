@@ -28,22 +28,5 @@ namespace Organiser.Views
                     DisplayAlert(args.title, args.message, "OK");
                 });
 		}
-
-        private bool CheckReturn()
-        {
-            return DisplayAlert("Warning", "Are you sure you want to leave?\nAll changes will be lost. ", "YES", "NO").Result;
-        }
-
-        protected override bool OnBackButtonPressed()
-        {
-            var confirm = CheckReturn();
-
-            if (confirm == true)
-            {
-                return base.OnBackButtonPressed();
-            }
-
-            return false;
-        }
     }
 }

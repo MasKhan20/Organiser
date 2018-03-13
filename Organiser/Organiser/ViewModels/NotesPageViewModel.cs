@@ -16,8 +16,6 @@ namespace Organiser.ViewModels
         #region Binding Commands
         public ICommand AddNewNoteCommand => new Command(AddNewNote_Command);
         public ICommand RefreshCommand => new Command(Refresh_Command);
-        //public ICommand ViewNoteCommand => new Command(ViewNote_Command);
-        //public ICommand DeleteNoteCommand => new Command(DeleteNote_Command);
         
         #endregion
 
