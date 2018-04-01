@@ -3,7 +3,7 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>{EF1EB531-7F17-4227-95AD-3ACF58972B4E}</SharedGUID>
+    <SharedGUID>{35252710-C6F3-4055-A019-1B3F4CA3F0E4}</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
     <Import_RootNamespace>Organiser</Import_RootNamespace>
@@ -15,64 +15,91 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IAdmobInterstitial.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\IFileHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\IMessenger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\NoteDataBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Note.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AddNotePageViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MasterPageViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NoteDetailPageViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NotesPageViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\AddNotePage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Settings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Note.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AddNotePageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MasterPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\NoteDetailPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\NotesPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\SettingsPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\WelcomePageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\AdMobViews.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\AddNotePage.xaml.cs">
       <DependentUpon>AddNotePage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\InsightsPage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)View\InsightsPage.xaml.cs">
       <DependentUpon>InsightsPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\MasterPage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)View\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\NoteDetailPage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)View\NoteDetailPage.xaml.cs">
       <DependentUpon>NoteDetailPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Views\RootMasterPage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\SlidePage.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\NotesPage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)View\NotesPage.xaml.cs">
       <DependentUpon>NotesPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\RootMasterPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)View\SlidePage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MasterPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\AddNotePage.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NotesPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\InsightsPage.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\AddNotePage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\MasterPage.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NoteDetailPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\NoteDetailPage.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\InsightsPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\NotesPage.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\WelcomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

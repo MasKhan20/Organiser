@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="using:Organiser.View"
+             x:Class="Organiser.View.NoteDetailPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit" Clicked="EditNote_Clicked" Order="Secondary"/>
+        <ToolbarItem Text="Delete" Clicked="DeleteNote_Clicked" Order="Secondary" IsDestructive="True"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ScrollView>
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Row="0"
+                        Margin="0,10,0,0"
+                        Text="Title"
+                        TextColor="Black"
+                        FontSize="Large"/>
+                    <Label
+                        Grid.Row="1"
+                        Margin="10,0,0,0"
+                        Text="{Binding Note.Title}"
+                        FontSize="Medium"/>
+                    <Label
+                        Grid.Row="2"
+                        Margin="0,10,0,0"
+                        Text="Description"
+                        TextColor="Black"
+                        FontSize="Large"/>
+                    <Label 
+                        Grid.Row="3"
+                        Margin="10,0,0,0"
+                        Text="{Binding Note.Description}"
+                        FontSize="Medium"/>
+                    <Label
+                        Grid.Row="4"
+                        Margin="0,10,0,0"
+                        Text="Task status:"
+                        TextColor="Black"
+                        FontSize="Large"/>
+                    <Grid 
+                        Grid.Row="5"
+                        Margin="10,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Switch
+                            x:Name="completeSwitch"
+                            Grid.Column="0"
+                            IsToggled="{Binding NoteComplete, Mode=TwoWay}"/>
+                        <Label
+                            Grid.Column="1"
+                            Text="{Binding CompleteNote}"
+                            FontSize="Medium"/>
+                    </Grid>
+                    <Label 
+                        Grid.Row="6"
+                        Text="Notification time" 
+                        Margin="0,10,0,0"
+                        TextColor="Black"
+                        FontSize="Large"/>
+                    <Label
+                        Grid.Row="7"
+                        Margin="10,0,0,0"
+                        FontSize="Medium"
+                        Text="{Binding NoteReminderTimeOfDay}"/>
+                    <Label 
+                        Grid.Row="8"
+                        Text="Notification day" 
+                        Margin="0,10,0,0"
+                        TextColor="Black"
+                        FontSize="Large"/>
+                    <Label
+                        Grid.Row="9"
+                        Margin="10,0,0,0"
+                        FontSize="Medium"
+                        Text="{Binding NoteReminderDate}"/>
+                </Grid>
+            </ScrollView>
+            <local:AdMobViewView Grid.Row="1"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

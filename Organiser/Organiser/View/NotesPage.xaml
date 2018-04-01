@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fab="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
+             xmlns:local="clr-namespace:Organiser.View"
+             x:Class="Organiser.View.NotesPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Note" Command="{Binding AddNewNoteCommand}"/>
+        <!--Icon="ic_add_white.png"-->
+        <ToolbarItem Text="Refresh" Command="{Binding RefreshCommand}" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="{Binding ListNote}" HorizontalTextAlignment="Center" FontAttributes="Bold" Margin="10"/>
+            <ListView 
+                x:Name="notesList"
+                Margin="10"
+                Header="Notes"
+                HasUnevenRows="True"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsRefreshing}"
+                RefreshCommand="{Binding RefreshCommand}"
+                SelectedItem="{Binding SelectedNote, Mode=TwoWay}"
+                ItemSelected="NotesList_ItemSelected"
+                ItemsSource="{Binding NotesList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem 
+                                    Text="View" 
+                                    Clicked="MenuView_Clicked"
+                                    CommandParameter="{Binding .}"/>
+                                <MenuItem
+                                    Text="Edit"
+                                    Clicked="MenuEdit_Clicked"
+                                    CommandParameter="{Binding .}"/>
+                                <MenuItem 
+                                    Text="Delete" 
+                                    Clicked="MenuDelete_Clicked"
+                                    CommandParameter="{Binding .}" 
+                                    IsDestructive="True"/>
+                            </ViewCell.ContextActions>
+                            <StackLayout Grid.Column="1">
+                                <Label Text="{Binding Title}" LineBreakMode="NoWrap" TextColor="Black" FontSize="Medium"/>
+                                <Label Text="{Binding Description}" LineBreakMode="NoWrap"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <fab:FloatingActionButtonView
+                ImageName="ic_add_white.png"
+                Command="{Binding AddNewNoteCommand}"
+                ColorNormal="{StaticResource Primary}"
+                ColorPressed="{StaticResource PrimaryDark}"
+                ColorRipple="{StaticResource PrimaryDark}"
+                HorizontalOptions="EndAndExpand"
+                VerticalOptions="EndAndExpand"/>
+            <local:AdMobHomeView Grid.Row="1"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

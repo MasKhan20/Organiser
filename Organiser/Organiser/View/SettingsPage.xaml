@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Organiser.View.SettingsPage">
+    <ContentPage.Content>
+        <TableView 
+            Intent="Settings"
+            HasUnevenRows="True">
+            <TableSection Title="Account">
+                <EntryCell Label="Username" Text="{Binding UserName}" HorizontalTextAlignment="End"/>
+                <ViewCell>
+                    <ContentView>
+                        <StackLayout Orientation="Horizontal" Margin="15,10,10,10">
+                            <Label Text="Take Account Picture" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Button Text="Take" Command="{Binding TakeImgCommand}" VerticalOptions="End"/>
+                        </StackLayout>
+                    </ContentView>
+                </ViewCell>
+                <ViewCell>
+                    <ContentView>
+                        <StackLayout Orientation="Horizontal" Margin="15,10,10,10">
+                            <Label Text="{Binding UserImgLabel}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Button Text="Change" Command="{Binding ChangeUserImgCommand}" VerticalOptions="End"/>
+                        </StackLayout>
+                    </ContentView>
+                </ViewCell>
+                <ViewCell>
+                    <ContentView>
+                        <StackLayout Orientation="Horizontal" Margin="15,10,10,10">
+                            <Label Text="{Binding BGImgLabel}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Button Text="Change" Command="{Binding ChangeBGImgCommand}" VerticalOptions="End"/>
+                        </StackLayout>
+                    </ContentView>
+                </ViewCell>
+                <ViewCell>
+                    <ContentView>
+                        <StackLayout Orientation="Horizontal" Margin="15,10,10,10">
+                            <Label Text="Reset Account" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Button Text="Reset" Command="{Binding ResetAllCommand}" VerticalOptions="End"/>
+                        </StackLayout>
+                    </ContentView>
+                </ViewCell>
+            </TableSection>
+            <TableSection Title="Application">
+                <ViewCell>
+                    <ContentView>
+                        <StackLayout Orientation="Horizontal" Margin="15,10,10,10">
+                            <Label Text="Remove Ads" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Button Text="Buy Now" Command="{Binding RemoveAdsCommand}" VerticalOptions="End"/>
+                        </StackLayout>
+                    </ContentView>
+                </ViewCell>
+            </TableSection>
+            <TableSection Title="Purchase State">
+                <ViewCell>
+                    <ContentView>
+                        <StackLayout Orientation="Horizontal" Margin="15,10,10,10">
+                            <Label Text="ID" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Label Text="{Binding PurchaseId}" VerticalOptions="End"/>
+                        </StackLayout>
+                    </ContentView>
+                </ViewCell>
+                <ViewCell>
+                    <ContentView>
+                        <StackLayout Orientation="Horizontal" Margin="15,10,10,10">
+                            <Label Text="Token" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Label Text="{Binding PurchaseToken}" VerticalOptions="End"/>
+                        </StackLayout>
+                    </ContentView>
+                </ViewCell>
+                <ViewCell>
+                    <ContentView>
+                        <StackLayout Orientation="Horizontal" Margin="15,10,10,10">
+                            <Label Text="State" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Label Text="{Binding PurchaseState}" VerticalOptions="End"/>
+                        </StackLayout>
+                    </ContentView>
+                </ViewCell>
+                <ViewCell>
+                    <ContentView>
+                        <StackLayout Orientation="Horizontal" Margin="15,10,10,10">
+                            <Label Text="Time" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                            <Label Text="{Binding PurchaseTime}" VerticalOptions="End"/>
+                        </StackLayout>
+                    </ContentView>
+                </ViewCell>
+            </TableSection>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

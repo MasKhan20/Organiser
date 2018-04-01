@@ -1,4 +1,4 @@
-﻿using Organiser.Models;
+﻿using Organiser.Model;
 using SQLite;
 using System;
 using System.Collections.Generic;

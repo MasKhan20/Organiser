@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "915821320328",
+    "firebase_url": "https://organiser-cf88d.firebaseio.com",
+    "project_id": "organiser-cf88d",
+    "storage_bucket": "organiser-cf88d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915821320328:android:30ec56466f160178",
+        "android_client_info": {
+          "package_name": "com.muhammadkhan.Organiser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915821320328-e4oq221odkkafqbgfucqoo9rqg6flvgc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_ZbJXX29yvdri1KHLSbSbtiJluhZf35g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,18 +9,12 @@ using Android.App;
 [assembly: AssemblyTitle("Organiser")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Muhammad Khan")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Organiser")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
-
-#if DEBUG
-[assembly: Application(Debuggable = true)]
-#else
-[assembly: Application(Debuggable = false)]
-#endif
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,6 +28,9 @@ using Android.App;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+[assembly: UsesFeature("android.hardware.camera", Required = false)]
+[assembly: UsesFeature("android.hardware.camera.autofocus", Required = false)]
 
 // Add some common permissions, these can be removed if not needed
 [assembly: UsesPermission(Android.Manifest.Permission.Internet)]

@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.muhammadkhan.Organiser" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" package="com.muhammadkhan.Organiser" android:installLocation="auto" android:versionCode="1">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="Organiser.Android" android:icon="@drawable/organiseicon"></application>
+	<uses-permission android:name="com.android.vending.BILLING" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+	<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
+	<application android:label="Organiser" android:icon="@drawable/organiseicon">
+		<!--Provider required for TakePhotoAsync()-->
+		<!--<provider android:name="android.support.v4.content.FileProvider" 
+              android:authorities="com.muhammadkhan.Organiser.fileprovider" 
+              android:exported="false" 
+              android:grantUriPermissions="true">
+          
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" 
+                 android:resource="@xml/file_paths"></meta-data>
+    </provider>-->
+	</application>
 </manifest>

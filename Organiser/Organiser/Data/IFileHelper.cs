@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Organiser.Data
 {
-    public interface IFileHelper
+    interface IFileHelper
     {
-        string GetLocalFilePath(string filename);
+        string GetLocalDataBaseFilePath(string filename);
     }
 }

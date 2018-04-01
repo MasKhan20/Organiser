@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Organiser.View.WelcomePage">
+    <CarouselPage.Children>
+        <ContentPage>
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Welcome to Orgasier" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                <Image Grid.Row="1" Source="organisersplash.png" HeightRequest="300"/>
+                <Label Grid.Row="2" Text="Here you can create notes and manage local tasks" Margin="0,10,0,0"/>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Text="Skip" BackgroundColor="{StaticResource PrimaryDark}" Command="{Binding SkipIntroCommand}"/>
+                    <Button Grid.Column="1" Text="Next" BackgroundColor="{StaticResource PrimaryDark}" Command="{Binding NextPageCommand}"/>
+                </Grid>
+            </Grid>
+        </ContentPage>
+        <ContentPage>
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Create notes and set reminder time"/>
+                <Image Grid.Row="1" Source="intro_create_notes.png" HeightRequest="300"/>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Text="Back" BackgroundColor="{StaticResource PrimaryDark}" Command="{Binding BackPageCommand}"/>
+                    <Button Grid.Column="1" Text="Next" BackgroundColor="{StaticResource PrimaryDark}" Command="{Binding NextPageCommand}"/>
+                </Grid>
+            </Grid>
+        </ContentPage>
+        <ContentPage>
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Check your insights"/>
+                <Image Grid.Row="1" Source="intro_view_insights.png" HeightRequest="300"/>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Text="Back" BackgroundColor="{StaticResource PrimaryDark}" Command="{Binding BackPageCommand}"/>
+                    <Button Grid.Column="1" Text="Next" BackgroundColor="{StaticResource PrimaryDark}" Command="{Binding NextPageCommand}"/>
+                </Grid>
+            </Grid>
+        </ContentPage>
+        <ContentPage>
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Create your account"/>
+                <Entry Grid.Row="1" Placeholder="Username" Text="{Binding NewUsername}"/>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Text="Back" BackgroundColor="{StaticResource PrimaryDark}" Command="{Binding BackPageCommand}"/>
+                    <Button Grid.Column="1" Text="Done" BackgroundColor="{StaticResource PrimaryDark}" Command="{Binding DoneCommand}"/>
+                </Grid>
+            </Grid>
+        </ContentPage>
+    </CarouselPage.Children>
+</CarouselPage>

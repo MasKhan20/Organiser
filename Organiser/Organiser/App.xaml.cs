@@ -12,11 +12,11 @@ namespace Organiser
 	{
         static NoteDataBase noteDataBase;
 
-		public App()
+        public App ()
 		{
 			InitializeComponent();
 
-            MainPage = new NavigationPage(new Organiser.Views.RootMasterPage() { Title = "Organiser" });
+			MainPage = new NavigationPage(new Organiser.View.RootMasterPage() { Title = "Organiser" });
         }
 
 		protected override void OnStart ()
@@ -41,10 +41,10 @@ namespace Organiser
                 if (noteDataBase == null)
                 {
                     noteDataBase = new NoteDataBase(
-                        DependencyService.Get<IFileHelper>().GetLocalFilePath("NoteSQLite.db3"));
+                        DependencyService.Get<IFileHelper>().GetLocalDataBaseFilePath("NoteSQLite.db3"));
                 }
                 return noteDataBase;
             }
         }
-	}
+    }
 }

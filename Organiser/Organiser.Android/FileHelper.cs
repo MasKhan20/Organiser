@@ -19,7 +19,7 @@ namespace Organiser.Droid
 {
     public class FileHelper : IFileHelper
     {
-        public string GetLocalFilePath(string filename)
+        public string GetLocalDataBaseFilePath(string filename)
         {
             string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             return Path.Combine(path, filename);
